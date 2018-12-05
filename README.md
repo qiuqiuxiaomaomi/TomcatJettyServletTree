@@ -31,9 +31,15 @@ Tomcat和Jetty都是一种Servlet引擎，他们都支持标准的Servlet规范�
             减少了服务器内存的开销，从而提高服务器的性能。
                Jetty默认采用NIO模型处理I/O请求，在处理静态资源时，性能较高。
 
+                Jetty 有一个处理长连接的机制：一个被称为 Continuations 的特性。利用
+            Continuation 机制，Jetty 可以使得一个线程能够用来同时处理多个从客户端发送
+            过来的异步请求
+
+
                 Tomcat适合处理少数非常繁忙的连接，也就是说连接生命周期短的话，Tomcat的总
             体性能更高。
                 Tomcat默认采用BIO处理I/O请求，处理静态资源时，性能较差。
+                当前Tomcat 8以上默认开启NIO, Nio方式，是Java SE 1.4及后续版本提供的一种新的I/O操作方式(即java.nio包及其子包)，是一个基于缓冲区、并能提供非阻塞I/O操作的Java API，它拥有比传统I/O操作(bio)更好的并发运行性能。tomcat 8版本及以上默认nio模式
 
              3）其他比较
                 Jetty的应用更加快速，修改简单，对新的Servlet规范的支持更友好。
